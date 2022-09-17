@@ -27,4 +27,4 @@ jobs:
       - name: Check lint
         run: make lint
       - name: Check Test
-        run: make test
+        run: make test-coverage
