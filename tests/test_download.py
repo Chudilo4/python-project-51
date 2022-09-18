@@ -11,7 +11,7 @@ def test_download():
     with tempfile.TemporaryDirectory() as rood:  # Создаём временную директорию
         m = requests_mock.Mocker()
         with m as m2:  # Создаём объект mock через менеджер контекстов
-            m2.get('https://example.com', text="data")
+            m2.get('https://example.com', text="data\n")
             r = download('https://example.com', rood)
             a = requests.get('https://example.com').text
             with open(r, 'r') as file:
