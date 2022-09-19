@@ -4,13 +4,10 @@
 import re
 
 
-def format_file(url, ext):
+def format_files(url):
     r = re.split(r'/\/|https:|\.|\/', url)
+    r2 = re.findall(r'\.\D{2,3}$', url)
     format_url = '-'.join(r)
-    return format_url[2::] + ext
-
-
-def format_img(url):
-    r = re.split(r'/\/|https:|\.|\/', url)
-    format_url = '-'.join(r)
-    return format_url[2:-4] + url[-4:]
+    if not r2:
+        return format_url[2:-4] + ".html"
+    return format_url[2:-4] + r2[0]

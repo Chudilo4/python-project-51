@@ -24,7 +24,10 @@ jobs:
           pip install requests_mock
           make build
           make package-install
-      - name: Check lint
-        run: make lint
-      - name: Check Test
-        run: make test
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v2.7.4
+        env:
+          CC_TEST_REPORTER_ID: 9c9f8bd94b65c9f6afda174f7a2abd4458ee45a4149276729403dc5b4f3047a6
+        with:
+          coverageCommand: make test-coverage
+          debug: true
