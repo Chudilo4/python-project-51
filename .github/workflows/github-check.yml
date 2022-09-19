@@ -22,6 +22,7 @@ jobs:
           pip install pytest
           pip install pytest-cov
           pip install requests_mock
+          pip install bs4
           make build
           make package-install
       - name: Test & publish code coverage
