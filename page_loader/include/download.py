@@ -9,6 +9,7 @@ from page_loader.include.download_img import download_files
 from page_loader.include.create_dir import create_dir
 from urllib.parse import urlparse
 import logging
+from progress.bar import Bar
 
 
 def download(url, path_os):
@@ -27,12 +28,16 @@ def download(url, path_os):
             'script': 'src',
             'link': 'href'
             }
+    bar = Bar('Loading', fill='@', suffix='%(percent)d%%')
     for tag, ref in tag2.items():
+        bar.next()
         for link in soup.select(tag):
             url_img = link.get(ref)
             url_img2 = urlparse(url_img)
             if url_img2.netloc == '':
                 link['src'] = download_files(url_img, url, path_dir_filers)
+                bar.next()
+    bar.finish()
     b = soup.prettify(formatter='html5')
     with open(path_html, 'w') as file:
         file.write(b)

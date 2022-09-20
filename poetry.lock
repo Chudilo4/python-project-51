@@ -81,6 +81,14 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "progress"
+version = "1.6"
+description = "Easy to use progress bars"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "pycodestyle"
 version = "2.9.1"
 description = "Python style guide checker"
@@ -162,7 +170,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "fa26c01021ef957cb4f10727f547ff36bf43ba97cee585742422cfbee2884ae3"
+content-hash = "2c95c52dbc11e0c6f2cd18f4dbff0d55f33ba4b50894cfa125c05898850eb97c"
 
 [metadata.files]
 argparse = [
@@ -195,6 +203,9 @@ idna = [
 mccabe = [
     {file = "mccabe-0.7.0-py2.py3-none-any.whl", hash = "sha256:6c2d30ab6be0e4a46919781807b4f0d834ebdd6c6e3dca0bda5a15f863427b6e"},
     {file = "mccabe-0.7.0.tar.gz", hash = "sha256:348e0240c33b60bbdf4e523192ef919f28cb2c3d7d5c7794f74009290f236325"},
+]
+progress = [
+    {file = "progress-1.6.tar.gz", hash = "sha256:c9c86e98b5c03fa1fe11e3b67c1feda4788b8d0fe7336c2ff7d5644ccfba34cd"},
 ]
 pycodestyle = [
     {file = "pycodestyle-2.9.1-py2.py3-none-any.whl", hash = "sha256:d1735fc58b418fd7c5f658d28d943854f8a849b01a5d0a1e6f3f3fdd0166804b"},
