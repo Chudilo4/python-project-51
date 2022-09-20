@@ -7,6 +7,7 @@ import os
 from bs4 import BeautifulSoup
 from page_loader.include.download_img import download_files
 from page_loader.include.create_dir import create_dir
+from urllib.parse import urlparse
 
 
 def download(url, path_os):
@@ -16,19 +17,16 @@ def download(url, path_os):
     a = html.text
     soup = BeautifulSoup(a, 'html.parser')
     path_dir_filers = create_dir(path_os)
-    for link in soup.select("img"):
-        url_img = link.get('src')
-        form_img = format_files(url_img)
-        path_img = os.path.join(path_dir_filers, form_img)
-        download_files(url_img, path_img)
-        link['src'] = path_img
-    for link in soup.select('link'):
-        if link.get('href') is not None:
-            url_files = link.get('href')
-            form_files = format_files(url_files)
-            path_files = os.path.join(path_dir_filers, form_files)
-            download_files(url_files, path_files)
-            link['href'] = path_files
+    tag2 = {'img': 'src',
+            'script': 'src',
+            'link': 'href'
+            }
+    for tag, ref in tag2.items():
+        for link in soup.select(tag):
+            url_img = link.get(ref)
+            url_img2 = urlparse(url_img)
+            if url_img2.netloc == '':
+                link['src'] = download_files(url_img, url, path_dir_filers)
     b = soup.prettify(formatter='html5')
     with open(path_html, 'w') as file:
         file.write(b)
