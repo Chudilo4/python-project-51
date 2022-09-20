@@ -8,12 +8,18 @@ from bs4 import BeautifulSoup
 from page_loader.include.download_img import download_files
 from page_loader.include.create_dir import create_dir
 from urllib.parse import urlparse
+import logging
 
 
 def download(url, path_os):
+    logging.basicConfig(level='INFO')
+    logger = logging.getLogger()
+    logger.info(f'request url : {url}')
+    logger.info(f'output path : {path_os}')
     html = requests.get(url)
     format_url = format_files(url)
     path_html = os.path.join(path_os, format_url)
+    logger.info(f'write html file : {path_html}')
     a = html.text
     soup = BeautifulSoup(a, 'html.parser')
     path_dir_filers = create_dir(path_os)
