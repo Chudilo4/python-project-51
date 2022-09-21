@@ -46,3 +46,5 @@ def download(url, path_os):
         file.write(b)
         file.close()
     return path_html
+
+print(download('http://www.google.com/nothere', '/var/tmp'))
