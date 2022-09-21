@@ -19,8 +19,8 @@ def download(url, path_os):
     logger.info(f'output path : {path_os}')
     try:
         html = requests.get(url)
-    except requests.exceptions as e:
-        logger.info(e)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
     format_url = format_files(url)
     path_html = os.path.join(path_os, format_url)
     logger.info(f'write html file : {path_html}')
