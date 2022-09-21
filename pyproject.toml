@@ -3,7 +3,7 @@ name = "hexlet-code"
 version = "0.1.0"
 description = ""
 authors = ["Артём <chipalinchik@gmail.com>"]
-packages = [  { include = "page_loader2" },]
+packages = [  { include = "page_loader" },]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -17,7 +17,7 @@ progress = "^1.6"
 [tool.poetry.dev-dependencies]
 
 [tool.poetry.scripts]
-page-loader = "page_loader2.script.main:main"
+page-loader = "page_loader.script.main:main"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

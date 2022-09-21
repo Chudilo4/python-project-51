@@ -2,7 +2,7 @@
 
 
 import os
-from page_loader2.script.create_dir import create_dir
+from page_loader.create_dir import create_dir
 import tempfile
 
 
