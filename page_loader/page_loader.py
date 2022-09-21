@@ -1,5 +1,5 @@
 # file <page_loader.py>
-
+import sys
 
 import requests
 from page_loader.format_file import format_files
@@ -20,7 +20,7 @@ def download(url, path_os):
     try:
         html = requests.get(url)
     except requests.exceptions.RequestException as e:
-        raise SystemExit(e)
+        raise sys.exit(e)
     format_url = format_files(url)
     path_html = os.path.join(path_os, format_url)
     logger.info(f'write html file : {path_html}')
