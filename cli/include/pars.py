@@ -2,6 +2,7 @@
 
 
 import argparse
+import os
 
 
 def parser():
@@ -9,13 +10,10 @@ def parser():
         description='Compares two configuration files and shows a difference.'
     )
     pars.add_argument('url',
-                      metavar='first_argument',
-                      type=str)
-    pars.add_argument('path_os',
-                      metavar='second_argument',
+                      metavar='URL',
                       type=str)
     pars.add_argument('-o', '--output',
-                      action='store_true',
+                      default=os.getcwd(),
                       help='set format of output', )
     args = pars.parse_args()
-    return args.url, args.path_os, args.output
+    return args.url, args.output
