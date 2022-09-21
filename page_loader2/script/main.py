@@ -1,8 +1,8 @@
 # file <main.py>
 
 
-from page_loader.pars import parser
-from page_loader.page_loader import download
+from page_loader2.script.pars import parser
+from page_loader2.page_loader import download
 
 
 def main():

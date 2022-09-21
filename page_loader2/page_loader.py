@@ -1,13 +1,12 @@
 # file <page_loader.py>
 
 
-import sys
 import requests
-from page_loader.format_file import format_files
+from page_loader2.script.format_file import format_files
 import os
 from bs4 import BeautifulSoup
-from page_loader.download_img import download_files
-from page_loader.create_dir import create_dir
+from page_loader2.script.download_img import download_files
+from page_loader2.script.create_dir import create_dir
 from urllib.parse import urlparse
 import logging
 from progress.bar import Bar
@@ -18,10 +17,9 @@ def download(url, path_os):
     logger = logging.getLogger()
     logger.info(f'request url : {url}')
     logger.info(f'output path : {path_os}')
-    try:
-        html = requests.get(url)
-    except requests.exceptions.RequestException as e:
-        raise sys.exit(e)
+    html = requests.get(url)
+    if html.status_code != 200:
+        raise Warning(f'Status_code is {html.status_code}')
     format_url = format_files(url)
     path_html = os.path.join(path_os, format_url)
     logger.info(f'write html file : {path_html}')
