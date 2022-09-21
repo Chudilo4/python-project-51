@@ -1,6 +1,7 @@
 # file <page_loader.py>
-import sys
 
+
+import sys
 import requests
 from page_loader.format_file import format_files
 import os
@@ -46,5 +47,3 @@ def download(url, path_os):
         file.write(b)
         file.close()
     return path_html
-
-print(download('http://www.google.com/nothere', '/var/tmp'))
