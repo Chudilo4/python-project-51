@@ -2,7 +2,7 @@
 
 
 from cli.include.pars import parser
-from cli.page_loader import download
+from page_loader import download
 
 
 def main():
