@@ -2,11 +2,11 @@
 
 
 import requests
-from cli.include.format_file import format_files
+from page_loader.format_file import format_files
 import os
 from bs4 import BeautifulSoup
-from cli.include.download_img import download_files
-from cli.include.create_dir import create_dir
+from page_loader.download_img import download_files
+from page_loader.create_dir import create_dir
 from urllib.parse import urlparse
 import logging
 from progress.bar import Bar

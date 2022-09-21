@@ -1,7 +1,7 @@
 # file <test_download.py>
 
 
-from cli.page_loader import download
+from page_loader.page_loader import download
 import requests
 import requests_mock
 import tempfile
