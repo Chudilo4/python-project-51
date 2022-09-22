@@ -12,4 +12,6 @@ def create_dir(path):
     except FileExistsError:
         shutil.rmtree(path2)
         os.mkdir(path2)
+    except FileNotFoundError:
+        raise Warning('file not found')
     return path2
