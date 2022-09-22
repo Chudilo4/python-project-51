@@ -18,6 +18,8 @@ def test_download():
             m2.get('https://example.com/menu.css', text=css)
             html = open('tests/fixtures/job.html', 'r').read()
             m2.get('https://example.com/job.html', text=html)
+            js = open('tests/fixtures/hello.js', 'r').read()
+            m2.get('https://example.com/hello.js', text=js)
             download('https://example.com', rood)
-            assert len(os.listdir(os.path.join(rood, 'example-com_files'))) == 3
+            assert len(os.listdir(os.path.join(rood, 'example-com_files'))) == 4
             assert len(os.listdir(rood)) == 2
