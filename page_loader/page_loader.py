@@ -37,7 +37,7 @@ def download(url, path_os):
             url_img = link.get(ref)
             url_img2 = urlparse(url_img)
             if url_img2.netloc == '':
-                link['src'] = download_files(url_img, url, path_dir_filers)
+                link[tag2[tag]] = download_files(url_img, url, path_dir_filers)
                 bar.next()
     bar.finish()
     b = soup.prettify(formatter='html5')
