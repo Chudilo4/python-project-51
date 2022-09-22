@@ -25,7 +25,7 @@ def download(url, path_os):
     logger.info(f'write html file : {path_html}')
     a = html.text
     soup = BeautifulSoup(a, 'html.parser')
-    path_dir_filers = create_dir(path_os, format_url)
+    path_dir_filers = create_dir(path_os, url)
     tag2 = {'img': 'src',
             'script': 'src',
             'link': 'href'
