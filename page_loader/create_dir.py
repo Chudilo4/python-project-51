@@ -8,7 +8,7 @@ import sys
 
 
 def create_dir(path):
-    logging.basicConfig(level='INFO')
+    logging.basicConfig(level='ERROR')
     logger = logging.getLogger()
     path2 = os.path.join(path, '_files')
     try:
