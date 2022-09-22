@@ -8,7 +8,7 @@ import re
 
 def create_dir(path, url):
     r = re.split(r'/\/|http:|https:|\.|\/', url)
-    format_url = '_'.join(r) + '_files'
+    format_url = '-'.join(r) + '_files'
     path2 = os.path.join(path, format_url[2:])
     try:
         os.mkdir(path2)
