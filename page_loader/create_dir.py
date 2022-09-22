@@ -13,8 +13,8 @@ def create_dir(path):
     path2 = os.path.join(path, '_files')
     try:
         os.mkdir(path2)
-    except FileNotFoundError:
-        logger.error('not found file')
+    except FileNotFoundError as err:
+        logger.error('not found file', err)
         sys.exit()
     except FileExistsError:
         shutil.rmtree(path2)
