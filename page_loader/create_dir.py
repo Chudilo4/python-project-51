@@ -6,10 +6,11 @@ import shutil
 import logging
 
 
-def create_dir(path):
+def create_dir(path, name):
     logger = logging.getLogger()
     logging.basicConfig(level='ERROR')
-    path2 = os.path.join(path, '_files')
+    a = name + '_files'
+    path2 = os.path.join(path, a)
     try:
         os.mkdir(path2)
     except Exception as err:
