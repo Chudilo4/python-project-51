@@ -36,7 +36,8 @@ def download(url, path_os):
         for link in soup.select(tag):
             url_img = link.get(ref)
             url_img2 = urlparse(url_img)
-            if url_img2.netloc == '':
+            url33 = urlparse(url)
+            if url_img2.netloc == '' or url_img2.netloc == url33:
                 link[tag2[tag]] = download_files(url_img, url, path_dir_filers)
                 bar.next()
     bar.finish()
