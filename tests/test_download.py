@@ -2,10 +2,8 @@
 import os
 
 from page_loader.page_loader import download
-import requests
 import requests_mock
 import tempfile
-from bs4 import BeautifulSoup
 
 
 def test_download():
@@ -20,6 +18,6 @@ def test_download():
             m2.get('https://example.com/menu.css', text=css)
             html = open('tests/fixtures/job.html', 'r').read()
             m2.get('https://example.com/job.html', text=html)
-            r = download('https://example.com', rood)
+            download('https://example.com', rood)
             assert len(os.listdir(os.path.join(rood, 'example-com_files'))) == 3
             assert len(os.listdir(rood)) == 2
