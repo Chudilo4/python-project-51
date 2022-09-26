@@ -37,7 +37,7 @@ def download(url, path_os):
             url_img = link.get(ref)
             url_img2 = urlparse(url_img)
             url33 = urlparse(url)
-            if url_img2.netloc == '' or url_img2.netloc == url33:
+            if url_img2.netloc == '' or url_img2.netloc == url33.netloc:
                 link[tag2[tag]] = download_files(url_img, url, path_dir_filers)
                 bar.next()
     bar.finish()
