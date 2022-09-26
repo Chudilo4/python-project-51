@@ -17,7 +17,7 @@ def test_download():
             css = open('tests/fixtures/menu.css', 'r').read()
             m2.get('https://example.com/menu.css', text=css)
             html = open('tests/fixtures/job.html', 'r').read()
-            m2.get('https://example.com/job.html', text=html)
+            m2.get('https://example.com/job', text=html)
             js = open('tests/fixtures/hello.js', 'r').read()
             m2.get('https://example.com/hello.js', text=js)
             download('https://example.com', rood)

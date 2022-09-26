@@ -13,7 +13,10 @@ def create_dir(path, url):
     path2 = os.path.join(path, format_url[2:])
     try:
         os.mkdir(path2)
-    except Exception as err:
+    except PermissionError as err:
+        logging.CRITICAL(err)
+        sys.exit(err)
+    except IsADirectoryError as err:
         logging.CRITICAL(err)
         sys.exit(err)
     return path2
