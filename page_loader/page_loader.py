@@ -21,7 +21,7 @@ def download(url, path_os):
     if html.status_code != 200:
         raise Warning(f'Status_code is {html.status_code}')
     rs = urlparse(url)
-    format_url = format_files(rs.netloc)
+    format_url = format_files(rs.netloc + rs.path)
     path_html = os.path.join(path_os, format_url)
     logger.info(f'write html file : {path_html}')
     a = html.text
