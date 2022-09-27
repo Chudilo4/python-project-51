@@ -10,6 +10,6 @@ def format_files(url):
     format_url = '-'.join(r)
     exc = ['.com', '.ru', '.en']
     if r2[-1] in exc:
-        return format_url[1:] + ".html"
+        return format_url[:] + ".html"
     else:
-        return format_url[1:-4] + r2[-1]
+        return format_url[:-4] + r2[-1]

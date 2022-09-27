@@ -2,7 +2,7 @@
 
 
 import requests
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 import re
 import os
 from page_loader.format_file import format_files
@@ -17,7 +17,8 @@ def download_files(url, url2, path_dir):
         path_f = format_url[1:] + ".html"
     else:
         path_f = format_url[1:-4] + r2[-1]
-    url1 = format_files(url2)
+    g = urlparse(url2)
+    url1 = format_files(g.netloc)
     path_file = url1[:-5] + '-' + path_f
     path_img = os.path.join(path_dir, path_file)
     cc = path_dir_files[-1] + '/' + path_file
