@@ -14,11 +14,11 @@ def download_files(url, url2, path_dir):
     path_dir_files = os.path.split(path_dir)
     format_url = '-'.join(r)
     if not r2:
-        path_filess = format_url[1:] + ".html"
+        path_f = format_url[1:] + ".html"
     else:
-        path_filess = format_url[1:-4] + r2[-1]
+        path_f = format_url[1:-4] + r2[-1]
     url1 = format_files(url2)
-    path_file = url1[:-5] + '-' + path_filess
+    path_file = url1[:-5] + '-' + path_f
     path_img = os.path.join(path_dir, path_file)
     exc = ['.js', '.html', 'css']
     url_full = urljoin(url2, url)
@@ -28,9 +28,11 @@ def download_files(url, url2, path_dir):
             a = a.text
             file1.write(a)
             file1.close()
-            return path_dir_files[-1] + '/' + path_file
+            cc = path_dir_files[-1] + '/' + path_file
+            return cc
     g = a.content
     with open(path_img, 'bw') as file2:
         file2.write(g)
         file2.close()
-    return path_dir_files[-1] + '/' + path_file
+        cc = path_dir_files[-1] + '/' + path_file
+    return cc
