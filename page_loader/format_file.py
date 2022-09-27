@@ -9,7 +9,7 @@ def format_files(url):
     r2 = re.findall(r'\.\w{2,3}\b', url)
     format_url = '-'.join(r)
     exc = ['.com', '.ru', '.en']
-    if r2[-1] in exc:
+    if r2[-1] == [] or r2[-1] in exc:
         return format_url[:] + ".html"
     else:
         return format_url[:-4] + r2[-1]
