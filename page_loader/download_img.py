@@ -15,18 +15,19 @@ def download_files(url, url2, path_dir):
         path_file = format_url[1:] + ".html"
     else:
         path_file = format_url[1:-4] + r2[-1]
-    path_img = os.path.abspath(path_file)
+    path_img = os.path.join(path_dir, path_file)
     exc = ['.js', '.html', 'css']
     url_full = urljoin(url2, url)
     a = requests.get(url_full)
+    path_dir_files = os.path.split(path_dir)
     if r2 == [] or r2[-1] in exc:
         with open(path_img, 'w') as file1:
             a = a.text
             file1.write(a)
             file1.close()
-            return path_img
+            return path_dir_files[-1] + '/' + path_file
     g = a.content
     with open(path_img, 'bw') as file2:
         file2.write(g)
         file2.close()
-    return path_img
+    return path_dir_files[-1] + '/' + path_file
