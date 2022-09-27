@@ -20,7 +20,7 @@ def download_files(url, url2, path_dir):
     else:
         path_f = format_url[1:-4] + r2[-1]
     g = urlparse(url2)
-    url1 = format_files(g.netloc)
+    url1 = format_files(g.netloc + g.path)
     path_file = url1[:-5] + '-' + path_f
     path_img = os.path.join(path_dir, path_file)
     cc = path_dir_files[-1] + '/' + path_file
