@@ -11,9 +11,9 @@ def main():
     try:
         url, o = parser()
         print(download(url, o))
-    except Exception as err:
-        logging.CRITICAL(err)
-        sys.exit(1)
+    except SystemExit as e:
+        logging.CRITICAL(e)
+        sys.exit(e.args)
 
 
 if __name__ == '__main__':
