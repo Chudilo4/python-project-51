@@ -41,7 +41,7 @@ def download(url, path_os):
                 link[tag2[tag]] = download_files(url_img, url, path_dir_filers)
                 bar.next()
     bar.finish()
-    b = soup.prettify(formatter='html5')
+    b = soup.prettify()
     with open(path_html, 'w') as file:
         file.write(b)
         file.close()
