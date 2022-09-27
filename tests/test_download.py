@@ -10,16 +10,16 @@ def test_download():
     with tempfile.TemporaryDirectory() as rood:  # Создаём временную директорию
         m = requests_mock.Mocker()
         with m as m2:  # Создаём объект mock через менеджер контекстов
-            img = open('/mnt/24d4e75b-51e1-40d4-b6c6-31891e1cd244/python-project-51/tests/fixtures/expected/localhost-blog-about_files/localhost-photos-me.jpg', 'br').read()
+            img = open('tests/fixtures/expected/localhost-blog-about_files/localhost-photos-me.jpg', 'br').read()
             m2.get('https://site.com/photos/me.jpg', content=img)
-            css = open('/mnt/24d4e75b-51e1-40d4-b6c6-31891e1cd244/python-project-51/tests/fixtures/expected/localhost-blog-about_files/localhost-blog-about-assets-styles.css', 'r').read()
+            css = open('tests/fixtures/expected/localhost-blog-about_files/localhost-blog-about-assets-styles.css', 'r').read()
             m2.get('https://site.com/blog/about/assets/styles.css', text=css)
-            js = open('/mnt/24d4e75b-51e1-40d4-b6c6-31891e1cd244/python-project-51/tests/fixtures/expected/localhost-blog-about_files/localhost-assets-scripts.js').read()
+            js = open('tests/fixtures/expected/localhost-blog-about_files/localhost-assets-scripts.js').read()
             m2.get('https://site.com/assets/scripts.js', text=js)
-            html_about = open('/mnt/24d4e75b-51e1-40d4-b6c6-31891e1cd244/python-project-51/tests/fixtures/expected/localhost-blog-about_files/localhost-blog-about.html').read()
+            html_about = open('tests/fixtures/expected/localhost-blog-about_files/localhost-blog-about.html').read()
             m2.get('https://site.com/blog/about', text=html_about)
             r = download('https://site.com/blog/about', rood)
-            excepted = open('/mnt/24d4e75b-51e1-40d4-b6c6-31891e1cd244/python-project-51/tests/fixtures/expected/site-com-blog-about.html').read()
+            excepted = open('tests/fixtures/expected/site-com-blog-about.html').read()
             w = open(r, 'r').read()
             print(os.listdir(rood))
             assert len(os.listdir(os.path.join(rood, 'site-com-blog-about_files'))) == 4

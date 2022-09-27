@@ -3,11 +3,17 @@
 
 from page_loader.pars import parser
 from page_loader.page_loader import download
+import logging
+import sys
 
 
 def main():
-    url, o = parser()
-    print(download(url, o))
+    try:
+        url, o = parser()
+        print(download(url, o))
+    except Exception as err:
+        logging.CRITICAL(err)
+        sys.exit(err)
 
 
 if __name__ == '__main__':
