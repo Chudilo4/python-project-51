@@ -8,13 +8,13 @@ import os
 
 
 def download_files(url, url2, path_dir):
-    r = re.split(r'/\/|https:|\.|\/', url)
+    r = re.split(r'/\/|https://|http://|\/|\.', url)
     r2 = re.findall(r'\.\w{2,3}\b', url)
     format_url = '-'.join(r)
     if not r2:
-        path_file = format_url[2:-4] + ".html"
+        path_file = format_url[1:] + ".html"
     else:
-        path_file = format_url[2:-4] + r2[-1]
+        path_file = format_url[1:-4] + r2[-1]
     path_img = os.path.join(path_dir, path_file)
     exc = ['.js', '.html', 'css']
     url_full = urljoin(url2, url)
