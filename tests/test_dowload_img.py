@@ -17,7 +17,7 @@ def test_download_files():
             with m as m2:  # Создаём объект mock через менеджер контекстов
                 m2.get('https://example.com/menu.css', text=img)
                 r = download_files(url, url2, rood)
-                cor = open(f'{rood}/example-com-menu.css', 'r').read()
+                cor = open(f'{rood}/example-com--example-com-menu.css', 'r').read()
                 pat = os.path.split(rood)
                 assert cor == img
-                assert r == f'{pat[-1]}/example-com-menu.css'
+                assert r == f'{pat[-1]}/example-com--example-com-menu.css'
