@@ -14,14 +14,14 @@ def download_files(url, url2, path_dir):
     path_dir_files = os.path.split(path_dir)
     format_url = '-'.join(r)
     if not r2:
-        path_f = format_url[1:] + ".html"
+        path_file = format_url[1:] + ".html"
     elif r2[-1] == '.js':
-        path_f = format_url[1:-3] + r2[-1]
+        path_file = format_url[1:-3] + r2[-1]
     else:
-        path_f = format_url[1:-4] + r2[-1]
+        path_file = format_url[1:-4] + r2[-1]
     g = urlparse(url2)
-    url1 = format_files(g.netloc + g.path)
-    path_file = url1[:-5] + '-' + path_f
+    url1 = format_files(g.netloc)
+    #path_file = url1[:-5] + '-' + path_f
     path_img = os.path.join(path_dir, path_file)
     cc = path_dir_files[-1] + '/' + path_file
     exc = ['.js', '.html', 'css']
