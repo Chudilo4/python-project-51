@@ -15,6 +15,8 @@ def download_files(url, url2, path_dir):
     format_url = '-'.join(r)
     if not r2:
         path_f = format_url[1:] + ".html"
+    elif r2[-1] == '.js':
+        path_f = format_url[1:-3] + r2[-1]
     else:
         path_f = format_url[1:-4] + r2[-1]
     g = urlparse(url2)
