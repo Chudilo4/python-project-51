@@ -13,8 +13,6 @@ def main():
         print(download(url, o))
         sys.exit(0)
     except Exception:
-        pass
-    finally:
         sys.exit(1)
 
 
