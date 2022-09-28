@@ -11,9 +11,10 @@ def main():
     try:
         url, o = parser()
         print(download(url, o))
-        sys.exit(1)
     except Exception:
         sys.exit(0)
+    finally:
+        sys.exit(1)
 
 
 if __name__ == '__main__':
