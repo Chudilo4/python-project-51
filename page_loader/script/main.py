@@ -10,8 +10,8 @@ def main():
     try:
         url, o = parser()
         print(download(url, o))
-    except SystemExit as e:
-        sys.exit(e.args)
+    except SystemExit:
+        sys.exit(1)
 
 
 if __name__ == '__main__':
