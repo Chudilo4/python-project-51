@@ -14,6 +14,9 @@ def main():
 if __name__ == '__main__':
     try:
         main()
-    except ExceptionGroup as e:
-        sys.exit(e.args)
-    sys.exit(0)
+    except KeyboardInterrupt:
+        sys.exit(2)
+    except OSError:
+        sys.exit(3)
+    except Exception:
+        sys.exit(1)
