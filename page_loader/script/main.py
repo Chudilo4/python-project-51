@@ -14,6 +14,6 @@ def main():
 if __name__ == '__main__':
     try:
         main()
-    except IndexError:
-        sys.exit(1)
+    except ExceptionGroup as e:
+        sys.exit(e.args)
     sys.exit(0)
