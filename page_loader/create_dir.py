@@ -15,8 +15,8 @@ def create_dir(path, url):
         os.mkdir(path2)
     except PermissionError as err:
         logging.CRITICAL(err)
-        sys.exit(err)
+        sys.exit(1)
     except IsADirectoryError as err:
         logging.CRITICAL(err)
-        sys.exit(err)
+        sys.exit(1)
     return path2
