@@ -4,16 +4,16 @@
 from page_loader.pars import parser
 from page_loader.page_loader import download
 import sys
+import os
 
 
 def main():
-
     try:
         url, o = parser()
         print(download(url, o))
-        sys.exit(0)
     except Exception:
-        sys.exit(1)
+        sys.exit(os.EX_CONFIG)
+    sys.exit(os.EX_CONFIG)
 
 
 if __name__ == '__main__':

@@ -34,7 +34,6 @@ def download(url, path_os):
     bar = Bar('Loading', fill='@', suffix='%(percent)d%%')  # Задаём визуальны бар загрузчка файлов в папку
     ff = os.path.split(path_dir_filers)
     for tag, ref in tag2.items():  # Циклом проходимся по интересующим нас тегов
-        bar.next()
         for link in soup.select(tag):  # Выбираем по тегу интесующие ссылки
             url_img = link.get(ref)  # Получаем ссылку
             url_img2 = urlparse(url_img)  # Парсим ссылку на наличие Домена
