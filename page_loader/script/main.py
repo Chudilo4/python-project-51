@@ -14,9 +14,7 @@ def main():
 if __name__ == '__main__':
     try:
         main()
-    except KeyboardInterrupt:
-        sys.exit(2)
-    except OSError:
-        sys.exit(3)
+    except ConnectionError:
+        sys.exit(1)
     except Exception:
         sys.exit(1)
