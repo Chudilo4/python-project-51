@@ -7,13 +7,13 @@ import sys
 
 
 def main():
-    try:
-        url, o = parser()
-        print(download(url, o))
-    except Exception:
-        sys.exit(1)
-    sys.exit(0)
+    url, o = parser()
+    print(download(url, o))
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except Exception:
+        sys.exit(1)
+    sys.exit(0)
