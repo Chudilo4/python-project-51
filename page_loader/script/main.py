@@ -4,7 +4,6 @@
 from page_loader.pars import parser
 from page_loader.page_loader import download
 import sys
-import os
 
 
 def main():
@@ -12,8 +11,8 @@ def main():
         url, o = parser()
         print(download(url, o))
     except Exception:
-        sys.exit(0)
-    sys.exit(1)
+        return sys.exit(1)
+    return sys.exit(0)
 
 
 if __name__ == '__main__':
