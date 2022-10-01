@@ -28,4 +28,4 @@ def test_download():
             assert len(os.listdir(os.path.join(rood, 'site-com-blog-about_files'))) == 4
             assert len(os.listdir(rood)) == 2
             assert excepted == w
-            assert re_code == 1
+            assert re_code == 0

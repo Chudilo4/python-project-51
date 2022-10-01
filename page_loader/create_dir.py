@@ -4,7 +4,6 @@
 import logging
 import os
 import re
-import sys
 
 
 def create_dir(path, url):
@@ -15,8 +14,8 @@ def create_dir(path, url):
         os.mkdir(path2)
     except PermissionError as err:
         logging.CRITICAL(err)
-        sys.exit(1)
+        raise SystemExit.args
     except IsADirectoryError as err:
         logging.CRITICAL(err)
-        sys.exit(1)
+        raise SystemExit.args
     return path2

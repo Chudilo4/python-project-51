@@ -9,7 +9,7 @@ def main():
         url, o = parser()
         print(download(url, o))
     except Exception:
-        raise SystemExit.args
+        SystemExit.args
     SystemExit.args
 
 
