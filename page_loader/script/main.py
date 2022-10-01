@@ -8,12 +8,14 @@ import logging
 
 
 def main():
+    logging.basicConfig(level=logging.DEBUG)
+    logger = logging.getLogger()
     try:
-        logger = logging.getLogger()
         url, o = parser()
         print(download(url, o))
-    except Exception:
-        logger.debug(sys.exit(1))
+    except SystemExit as e:
+        logger.error(str(e))
+        raise
     sys.exit(0)
 
 
