@@ -25,9 +25,7 @@ def test_download():
             w = open(r, 'r').read()
             proc = subprocess.run(f'python3 page_loader/script/main.py https://site.com/blog/about -o{rood}', shell=True)
             re_code = proc.returncode
-            std = proc.stdout
-            print(std)
             assert len(os.listdir(os.path.join(rood, 'site-com-blog-about_files'))) == 4
             assert len(os.listdir(rood)) == 2
             assert excepted == w
-            assert re_code == 0
+            assert re_code == 1
