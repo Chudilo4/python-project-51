@@ -15,7 +15,7 @@ def main():
         print(download(url, o))
     except SystemExit as e:
         logger.error(str(e))
-        raise
+        raise sys.exit(int(e))
     sys.exit(0)
 
 
