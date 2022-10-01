@@ -7,11 +7,11 @@ import sys
 
 
 def main():
-    logging.basicConfig(stream=sys.stderr)
+    logging.basicConfig(stream=sys.stdout)
     logger = logging.getLogger()
     try:
         url, o = parser()
-        print(download(url, o))
+        print(f'{download(url, o)}')
     except Exception:
         logger.exception(sys.exit(1))
     logger.info(sys.exit(0))
