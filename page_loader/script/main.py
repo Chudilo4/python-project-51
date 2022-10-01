@@ -1,5 +1,5 @@
 # file <main.py>
-
+import logging
 
 from page_loader.pars import parser
 from page_loader.page_loader import download
@@ -7,11 +7,8 @@ import sys
 
 
 def main():
-    try:
-        url, o = parser()
-        print(download(url, o))
-    except SystemExit as e:
-        sys.exit(str(e))
+    url, o = parser()
+    print(download(url, o))
     sys.exit(str(0))
 
 
