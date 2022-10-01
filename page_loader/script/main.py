@@ -10,7 +10,6 @@ def main():
         print(download(url, o))
     except Exception:
         SystemExit.args
-    SystemExit.args
 
 
 if __name__ == '__main__':
