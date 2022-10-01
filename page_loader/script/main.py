@@ -12,7 +12,8 @@ def main():
     try:
         url, o = parser()
         print(f'{download(url, o)} hello')
-    except Exception:
+    except Exception as ex:
+        print(ex)
         logger.exception(sys.exit(1))
     logger.info(sys.exit(0))
 
