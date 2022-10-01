@@ -1,9 +1,11 @@
 # file <test_download.py>
 import os
+import subprocess
+import tempfile
+
+import requests_mock
 
 from page_loader.page_loader import download
-import requests_mock
-import tempfile
 
 
 def test_download():
@@ -21,7 +23,11 @@ def test_download():
             r = download('https://site.com/blog/about', rood)
             excepted = open('tests/fixtures/expected/site-com-blog-about.html').read()
             w = open(r, 'r').read()
-            print(os.listdir(rood))
+            proc = subprocess.run(f'python3 page_loader/script/main.py https://site.com/blog/about -o{rood}', shell=True)
+            re_code = proc.returncode
+            std = proc.stdout
+            print(std)
             assert len(os.listdir(os.path.join(rood, 'site-com-blog-about_files'))) == 4
             assert len(os.listdir(rood)) == 2
             assert excepted == w
+            assert re_code == 0

@@ -1,21 +1,17 @@
 # file <main.py>
-import logging
-
-from page_loader.pars import parser
-from page_loader.page_loader import download
 import sys
+
+from page_loader.page_loader import download
+from page_loader.pars import parser
 
 
 def main():
-    logging.basicConfig(stream=sys.stdout)
-    logger = logging.getLogger()
     try:
         url, o = parser()
-        print(f'{download(url, o)} hello')
-    except Exception as ex:
-        print(ex)
-        logger.exception(sys.exit(1))
-    logger.info(sys.exit(0))
+        print(download(url, o))
+        sys.exit(0)
+    except Exception:
+        raise SystemExit
 
 
 if __name__ == '__main__':

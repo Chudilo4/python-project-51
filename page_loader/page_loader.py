@@ -1,15 +1,17 @@
 # file <page_loader.py>
 
 
-import requests
-from page_loader.format_file import format_files
-import os
-from bs4 import BeautifulSoup
-from page_loader.download_img import download_files
-from page_loader.create_dir import create_dir
-from urllib.parse import urlparse
 import logging
+import os
+from urllib.parse import urlparse
+
+import requests
+from bs4 import BeautifulSoup
 from progress.bar import Bar
+
+from page_loader.create_dir import create_dir
+from page_loader.download_img import download_files
+from page_loader.format_file import format_files
 
 
 def download(url, path_os):
