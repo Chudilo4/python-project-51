@@ -7,9 +7,14 @@ import sys
 
 
 def main():
-    url, o = parser()
-    print(download(url, o))
-    sys.exit(str(0))
+    logging.basicConfig(stream=sys.stderr)
+    logger = logging.getLogger()
+    try:
+        url, o = parser()
+        print(download(url, o))
+    except Exception:
+        logger.exception(sys.exit(1))
+    logger.info(sys.exit(0))
 
 
 if __name__ == '__main__':
