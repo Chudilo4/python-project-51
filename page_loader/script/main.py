@@ -11,7 +11,7 @@ def main():
     logger = logging.getLogger()
     try:
         url, o = parser()
-        print(f'{download(url, o)}')
+        print(f'{download(url, o)} hello')
     except Exception:
         logger.exception(sys.exit(1))
     logger.info(sys.exit(0))
