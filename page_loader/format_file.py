@@ -2,6 +2,7 @@
 
 
 import re
+import sys
 
 
 def format_files(url):
@@ -15,4 +16,4 @@ def format_files(url):
         else:
             return format_url[:-4] + r2[-1]
     except IndexError:
-        raise SystemExit.args
+        sys.exit(1)

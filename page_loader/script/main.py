@@ -8,6 +8,7 @@ def main():
     try:
         url, o = parser()
         print(download(url, o))
+        SystemExit
     except Exception:
         SystemExit.args
 
