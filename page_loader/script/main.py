@@ -8,12 +8,12 @@ import logging
 
 def main():
     logger = logging.getLogger()
-    logger.setLevel("ERROR")
     try:
         url, o = parser()
         print(download(url, o))
     except Exception as e:
-        logger.error(e, sys.exit(1))
+        logger.critical(e)
+        sys.exit(1)
     sys.exit()
 
 
