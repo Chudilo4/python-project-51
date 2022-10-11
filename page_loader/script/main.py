@@ -9,8 +9,8 @@ def main():
     try:
         url, o = parser()
         print(download(url, o))
-    except Exception:
-        sys.exit(1)
+    except Exception as e:
+        sys.exit(e)
     sys.exit(0)
 
 
