@@ -13,8 +13,7 @@ def main():
         url, o = parser()
         print(download(url, o))
     except BaseException as e:
-        logger.info(e)
-        sys.exit(1)
+        sys.exit(e)
     sys.exit(0)
 
 
