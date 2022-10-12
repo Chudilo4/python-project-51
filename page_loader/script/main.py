@@ -7,14 +7,13 @@ import logging
 
 
 def main():
-    logger = logging.getLogger()
     try:
         url, o = parser()
         print(download(url, o))
+        sys.exit(0)
     except Exception as e:
-        logger.critical(e)
+        logging.exception(e)
         sys.exit(1)
-    sys.exit()
 
 
 if __name__ == '__main__':

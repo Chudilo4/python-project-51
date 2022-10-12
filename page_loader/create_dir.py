@@ -1,7 +1,6 @@
 # file <create_dir.py>
 
 
-import logging
 import os
 import re
 
@@ -13,9 +12,7 @@ def create_dir(path, url):
     try:
         os.mkdir(path2)
     except PermissionError as err:
-        logging.CRITICAL(err)
         assert err
     except IsADirectoryError as err:
-        logging.CRITICAL(err)
         assert err
     return path2

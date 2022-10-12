@@ -1,7 +1,7 @@
 # file <test_download.py>
 import os
+import subprocess
 import tempfile
-
 import requests_mock
 
 from page_loader.page_loader import download
@@ -18,10 +18,13 @@ def test_download():
             js = open('tests/fixtures/expected/localhost-blog-about_files/localhost-assets-scripts.js').read()
             m2.get('https://site.com/assets/scripts.js', text=js)
             html_about = open('tests/fixtures/expected/localhost-blog-about_files/localhost-blog-about.html').read()
-            m2.get('https://site.com/blog/about', text=html_about)
+            m2.get('https://site.com/blog/about', text=html_about, status_code=200)
             r = download('https://site.com/blog/about', rood)
             excepted = open('tests/fixtures/expected/site-com-blog-about.html').read()
             w = open(r, 'r').read()
+            proc = subprocess.run('page-loader https://dota2.ru', shell=True)
+            df = proc.returncode
             assert len(os.listdir(os.path.join(rood, 'site-com-blog-about_files'))) == 4
             assert len(os.listdir(rood)) == 2
             assert excepted == w
+            assert df == 0
